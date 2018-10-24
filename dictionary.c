@@ -25,32 +25,33 @@ int loaded = 0;
  */
 bool check(const char *word)
 {
-    // TODO
+    // letter to hold letter in the word. i is used as counter.
     int letter, i = 0;
 
-    // Trivarsal NOde
+    // trivarsal node
     trie *triv = root;
 
     while (word[i] != '\0')
     {
         letter = tolower(word[i]) - 97;
-        // Check for "\'"
+        // check for "\'"
         if (word[i] == '\'')
         {
                 letter = 26;
         }
-
+        // check for letter in the trie.
         if (triv->children[letter] == NULL)
         {
             return false;
         }
+        // move to next letter in the trie.
         else
         {
             triv = triv->children[letter];
         }
         i++;
     }
-    //Check For Word Finally
+    // check for word finally
     if (triv->is_word)
         return true;
 
