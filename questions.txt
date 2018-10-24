@@ -1,0 +1,12 @@
+0.  An invented long word said to mean a lung disease caused by inhaling very fine ash and sand dust.
+1.  getrusage returns the usage measure for the calling process or all children of the calling process or for the calling thread.
+2.  16 members are there in variable type struct rusage.
+3.  We Pass before and after variables by reference because if we pass these variables by value a copy has to be made and as these variables have 16 members and very large in size, it will take a significant amount of time to copy these variables. Therefore, we pass these variables by reference so that the execution doesn't bottleneck.
+4.  The For Loop starts by initializing variable c by calling fgetc function which reads a character from the file and advances to next position in the file. The Loop continues this process until it reaches fgetc function returns EOF(End of File).
+    The if condition checks for if the char read is a Alphabet along with a apostrophe, if true the char starts getting appended to a word array which stores the whole word until a new word is found.
+    The else if condition checks for if the char read is a digit, if true then it enters a while loop which iterates throught the file until the char read is not equal to EOF and the whole alphanumeric word is finished reading.
+    The last else if condition checks for if we have found the whole word, if true then word array gets appended with a termination char "\0". Then we call the check function to check for misspelled word by cross referencing the word in our loaded dictionary.
+    The calculate function is called to benchmark the time taken to check the word in the dictionary. Finally it prints the misspellings and increses the index counter for new word.
+5.  If we use fscanf then the whole word will be loaded until a whitespace that we dont want because we want to check for various other elements like digits and alphanumeric, apostrophes in the word. Therefore, we use fgetc so that we can read one char at a time so that we can do different things when we encounter things like apostrophe, digits etc.
+6.  We Declared the parameters of check and load as const because we dont want to alter the information accidentaly or intentionally.
+    By Keeping the parameters as const it ensures that the provided data will remain constant throughout the function.
